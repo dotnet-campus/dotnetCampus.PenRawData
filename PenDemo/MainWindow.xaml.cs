@@ -44,12 +44,12 @@ InAir = {device.InAir}
 InRange = {device.InRange}
 Inverted = {device.Inverted}
 IsValid = {device.IsValid}
-NameDevice.Id = {device.TabletDevice.Id}
-NameDevice.Name = {device.TabletDevice.Name}
-NameDevice.ProductId = {device.TabletDevice.ProductId}
-NameDevice.TabletHardwareCapabilities = {device.TabletDevice.TabletHardwareCapabilities}
-NameDevice.Type = {device.TabletDevice.Type}
-NameDevice.SupportedStylusPointProperties = {string.Join(" | ", device.TabletDevice.SupportedStylusPointProperties.Select(x => $"{FormatGuid(x.Id)}{(x.IsButton ? "&IsButton" : "")}"))}
+TabletDevice.Id = {device.TabletDevice.Id}
+TabletDevice.Name = {device.TabletDevice.Name}
+TabletDevice.ProductId = {device.TabletDevice.ProductId}
+TabletDevice.TabletHardwareCapabilities = {device.TabletDevice.TabletHardwareCapabilities}
+TabletDevice.Type = {device.TabletDevice.Type}
+TabletDevice.SupportedStylusPointProperties = {string.Join(" | ", device.TabletDevice.SupportedStylusPointProperties.Select(x => $"{FormatGuid(x.Id)}{(x.IsButton ? "&IsButton" : "")}"))}
 ";
 
             var raw = GetFieldValue<int[]>(stylusPoint, "_additionalValues");
@@ -57,7 +57,7 @@ NameDevice.SupportedStylusPointProperties = {string.Join(" | ", device.TabletDev
 
             var debug = properties.Select(x => FormatStylusProperty(x, stylusPoint));
             DebugTextBlock.Text = $@"{states}
-[{string.Join(", ", raw)}]
+RAW: [{string.Join(", ", raw)}]
 
 {string.Join("\r\n", debug)}";
         }
